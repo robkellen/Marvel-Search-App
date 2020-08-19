@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 function myFunction() {
   var x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
@@ -7,6 +8,17 @@ function myFunction() {
   }
 }
 
+=======
+
+function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+      x.className += " responsive";
+    } else {
+      x.className = "topnav";
+    }
+  }
+>>>>>>> 1c67971d9e2d9a20262e182831dba28ed5e5878b
 
 const hash = "f3ca3e169c9bd8ca02d93185989ba9cc"
 
@@ -20,3 +32,4 @@ $.ajax({
 }).then(function(response){
   console.log(response);
 });
+
