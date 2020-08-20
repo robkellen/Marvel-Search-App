@@ -8,6 +8,7 @@ function myFunction() {
 }
 
 const charID = "";
+// const searchName = $("#searchEntry").val().trim();
 
 
 function characterSearch (){
@@ -27,7 +28,7 @@ function characterSearch (){
     return charID;
   });  
 }
-//characterSearch();
+characterSearch();
 
 
 
@@ -44,7 +45,8 @@ function comicSearch(){
     console.log(response);
     const coverThumbUrl = response.data.results[0].thumbnail.path;
     console.log(coverThumbUrl);
-    $("#test").append(coverThumbUrl + "jpg");
+    const coverImage = coverThumbUrl + ".jpg";
+    $("#test").append($("<img>").attr("src", coverImage));
   });   
 }
 comicSearch();
