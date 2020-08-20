@@ -37,8 +37,8 @@ body {
   @media screen and (max-width: 600px) {
     .topnav a:not(:first-child) {display: none;}
     .topnav a.icon {
-      float: right;
-      display: block;
+    
+      display: inline-block;
     }
   }
   
@@ -74,7 +74,7 @@ body {
     color: brown;
     margin: auto;
     font-family: fantasy;
-    align: center;
+    text-align: center;
     width: 200px;
     height: 50px;
     
@@ -91,7 +91,7 @@ body {
   height: 200px;
   border: 1px solid #f1f1f1;
   perspective: 1000px; /* Remove this if you don't want the 3D effect */
-/* } */ */
+/* } */ 
 
 /* This container is needed to position the front and back side */
 /* .flip-card-inner {
