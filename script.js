@@ -8,12 +8,12 @@ function myFunction() {
 }
 
 //declare name of character searched from HTML input
-const searchName = $("#searchEntry").val().trim();
+const searchName = $("#character-search").val().trim();
 
 function characterSearch (){
   const hash = "f3ca3e169c9bd8ca02d93185989ba9cc";
   const apiKey = "6ac5ff42f16a138a51581025d4b3838f";
-  const searchName = $("#searchEntry").val().trim();
+  const searchName = $("#character-search").val().trim();
   //queryUrl built with md5
   const queryUrl = "http://gateway.marvel.com/v1/public/characters?name=" + searchName + "&ts=1&apikey=6ac5ff42f16a138a51581025d4b3838f&hash=f3ca3e169c9bd8ca02d93185989ba9cc";  
   
@@ -42,17 +42,13 @@ function comicSearch(charID){
     const coverThumbUrl = response.data.results[0].thumbnail.path;
     console.log(coverThumbUrl);
     const coverImage = coverThumbUrl + ".jpg";
-    $("#test").append($("<img>").attr("src", coverImage));
+    $("#firstCover").append($("<img>").attr("src", coverImage).attr("alt", "comic cover"));
   });   
 }
 
-
-
-//comicSearch();
-
-$("#findComic").on("click", function(event){
+$("#searchBtnComics").on("click", function(event){
   event.preventDefault();
-  const searchName = $("#searchEntry").val().trim();
+  const searchName = $("#character-search").val().trim();
   characterSearch();
   console.log(searchName);
 })
