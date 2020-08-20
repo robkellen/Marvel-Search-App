@@ -8,6 +8,7 @@ body {
   #character-search {
     float: left;
     margin-top: 15px;
+    margin-left: 10px;
   }
   
   .topnav {
