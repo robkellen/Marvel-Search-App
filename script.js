@@ -7,14 +7,13 @@ function myFunction() {
   }
 }
 
-const charID = "";
-// const searchName = $("#searchEntry").val().trim();
-
+var charID;
+var searchName = $("#searchEntry").val().trim();
 
 function characterSearch (){
   const hash = "f3ca3e169c9bd8ca02d93185989ba9cc";
   const apiKey = "6ac5ff42f16a138a51581025d4b3838f";
-  const searchName = "hulk"
+  const searchName = $("#searchEntry").val().trim();
   //queryUrl built with md5
   const queryUrl = "http://gateway.marvel.com/v1/public/characters?name=" + searchName + "&ts=1&apikey=6ac5ff42f16a138a51581025d4b3838f&hash=f3ca3e169c9bd8ca02d93185989ba9cc";  
   
@@ -25,28 +24,35 @@ function characterSearch (){
     console.log(response);
     const charID = response.data.results[0].id  
     console.log(charID);
-    return charID;
   });  
+  comicSearch();
+  function comicSearch(){
+    const hash = "f3ca3e169c9bd8ca02d93185989ba9cc";
+    const apiKey = "6ac5ff42f16a138a51581025d4b3838f";
+    const charID = characterSearch(charID);
+    const queryUrl2 = "http://gateway.marvel.com/v1/public/characters/" + charID + "/comics?&ts=1&apikey=6ac5ff42f16a138a51581025d4b3838f&hash=f3ca3e169c9bd8ca02d93185989ba9cc";
+  
+    $.ajax({
+      url: queryUrl2,
+      method: "GET",
+    }).then(function (response) {
+      console.log(response);
+      const coverThumbUrl = response.data.results[0].thumbnail.path;
+      console.log(coverThumbUrl);
+      const coverImage = coverThumbUrl + ".jpg";
+      $("#test").append($("<img>").attr("src", coverImage));
+    });   
+  }
 }
-characterSearch();
+// characterSearch();
 
 
 
-function comicSearch(){
-  const hash = "f3ca3e169c9bd8ca02d93185989ba9cc";
-  const apiKey = "6ac5ff42f16a138a51581025d4b3838f";
-  const charID = "1009351"
-  const queryUrl2 = "http://gateway.marvel.com/v1/public/characters/" + charID + "/comics?&ts=1&apikey=6ac5ff42f16a138a51581025d4b3838f&hash=f3ca3e169c9bd8ca02d93185989ba9cc";
+//comicSearch();
 
-  $.ajax({
-    url: queryUrl2,
-    method: "GET",
-  }).then(function (response) {
-    console.log(response);
-    const coverThumbUrl = response.data.results[0].thumbnail.path;
-    console.log(coverThumbUrl);
-    const coverImage = coverThumbUrl + ".jpg";
-    $("#test").append($("<img>").attr("src", coverImage));
-  });   
-}
-comicSearch();
+$("#findComic").on("click", function(event){
+  event.preventDefault();
+  const searchName = $("#searchEntry").val().trim();
+  characterSearch();
+  console.log(searchName);
+})
