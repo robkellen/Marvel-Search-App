@@ -25,10 +25,48 @@ function charBio () {
   
   $.ajax(settings).then(function (response) {
     console.log(response);
-    const charCard = $("<div>").attr("class","card");
-    $("#bio").append(charCard);
+
+    const charAttributes = JSON.parse(response);
+    const name = (charAttributes.name);
+    const attributes = (charAttributes.powerstats);
+    console.log(attributes);
+    const biography = (charAttributes.biography.firstAppearance);
+    const charImage = (charAttributes.images.sm);
+
+    // const charTile = $("<div>").attr("class","tile2 tile-is12 is-parent");
+    // $("#bio").append(charTile);
+    const newArticle = $("<article>").attr("class", "tile2 tile-is12 is-parent has-background-grey-dark notification is-vertical is-info");
+    $("#bio").append(newArticle);
+    const content = $("<div>").attr("class", "content");
+    newArticle.append(content);
+
+    const charHeader = $("<p>").attr("class", "title").css("color", "rgb(187, 20, 20)").text(name);
+    content.append(charHeader);
     
+    const figure = $("<figure>").attr("class", "image is-3by4")
+    content.append(figure);
+
+    const image = $("<div>").attr("class","is-rounded");
+    figure.append(image);
     
+    const headShot = $("<img>").attr("src", charImage).attr("alt", "Character Photo");
+    figure.append(headShot);
+
+    const content2 = content
+    content.append(content2);
+    
+    let newUl = $("<ul>").attr("class", "list")
+    content2.append(newUl);
+
+    const trait = Object.properties(attributes);
+    const value = Object.values(attributes);
+    console.log(listAttributes);
+
+    // for (let i = 0; i < listAttributes.length; i++) {
+      
+    //   console.log(li);
+      
+    // }
 
   });
   }
@@ -68,9 +106,8 @@ function comicSearch(charID) {
     url: queryUrl2,
     method: "GET",
   }).then(function (response) {
-    // console.log(response);
-    // let i = 0;
-    // console.log(response.data.results[i].images[i]);
+    //empties comics div so new search renders only the comics for that character
+    $("#comics").empty();
 
     const coverIndex = response.data.results;
     let count = 0;

@@ -95,7 +95,7 @@ img {
 }
 
 .tile2 {
-  max-width: 300px;
+  width: 100%;
   float: left;
   background-color: #3d3f3d;
   opacity: 50%;
@@ -103,4 +103,11 @@ img {
 
 .footer {
   background-color: rgb(187, 20, 20) !important;
+}
+
+.tile2 {
+  height: 100%;
+  float: left;
+  background-color: #3d3f3d;
+  opacity: 50%;
 }
