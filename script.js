@@ -24,6 +24,7 @@ function charBio () {
   }
   
   $.ajax(settings).then(function (response) {
+    $("#bio").empty();
     console.log(response);
 
     const charAttributes = JSON.parse(response);
