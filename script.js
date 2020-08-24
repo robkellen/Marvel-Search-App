@@ -78,7 +78,7 @@ function characterSearch() {
   const searchName = $("#character-search").val().trim();
   //queryUrl built with md5
   const queryUrl =
-    "http://gateway.marvel.com/v1/public/characters?name=" +
+    "https://gateway.marvel.com/v1/public/characters?name=" +
     searchName +
     "&ts=1&apikey=6ac5ff42f16a138a51581025d4b3838f&hash=f3ca3e169c9bd8ca02d93185989ba9cc";
 
@@ -98,7 +98,7 @@ function comicSearch(charID) {
   const hash = "f3ca3e169c9bd8ca02d93185989ba9cc";
   const apiKey = "6ac5ff42f16a138a51581025d4b3838f";
   const queryUrl2 =
-    "http://gateway.marvel.com/v1/public/characters/" +
+    "https://gateway.marvel.com/v1/public/characters/" +
     charID +
     "/comics?&ts=1&apikey=6ac5ff42f16a138a51581025d4b3838f&hash=f3ca3e169c9bd8ca02d93185989ba9cc";
 
