@@ -8,7 +8,7 @@ As fans of everything Marvel we created an app that allows you to search for you
 
 ## Screenshot
 
-[![Screen-Shot-2020-08-22-at-10-00-41-PM.png](https://i.postimg.cc/MptwTBh0/Screen-Shot-2020-08-22-at-10-00-41-PM.png)](https://postimg.cc/NKySCKGL)
+[![marvel-tiles.jpg](https://i.postimg.cc/XvHLBTwg/marvel-tiles.jpg)](https://postimg.cc/1gFwL77g)
 
 ## Languages/Tech Used
 
