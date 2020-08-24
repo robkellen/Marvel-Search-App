@@ -72,6 +72,10 @@ html {
   float: left;
 }
 
+#mainRow {
+  margin-top: 20px;
+}
+
 img {
   /*rounds edges on images for movies and comics tab*/
   border-radius: 15%;

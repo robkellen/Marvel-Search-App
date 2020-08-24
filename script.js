@@ -25,6 +25,10 @@ function charBio () {
   
   $.ajax(settings).then(function (response) {
     console.log(response);
+    const charCard = $("<div>").attr("class","card");
+    $("#bio").append(charCard);
+    
+    
 
   });
   }
@@ -70,18 +74,18 @@ function comicSearch(charID) {
 
     const coverIndex = response.data.results;
     let count = 0;
-    let newRow = $("<div>").attr("class", "row");
+    let newRow = $("<div>").attr("class", "columns");
     //create for loop here to loop through 18
     for (let i = 0; i < coverIndex.length; i++) {
-      if (count === 6) {
-        $("#mainContainer").append(newRow);
+      if (count === 4) {
+        $("#comics").append(newRow);
         count = 0;
-        newRow = $("<div>").attr("class", "row");
+        newRow = $("<div>").attr("class", "columns");
       }
       // console.log(response.data.results[i])
       // console.log(response.data.results[i].images)
 
-      const newCol = $("<div>").attr("class", "column is-2");
+      const newCol = $("<div>").attr("class", "column");
       newRow.append(newCol);
       // const apiImageArray = response.data.results[i].images[i];
       const coverThumbUrl = response.data.results[i].thumbnail.path;
