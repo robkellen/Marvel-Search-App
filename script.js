@@ -59,9 +59,9 @@ function charBio () {
     let newUl = $("<ul>").attr("class", "list")
     content2.append(newUl);
 
-    const trait = Object.properties(attributes);
-    const value = Object.values(attributes);
-    console.log(listAttributes);
+    // const trait = Object.properties(attributes);
+    // const value = Object.values(attributes);
+    // console.log(listAttributes);
 
     // for (let i = 0; i < listAttributes.length; i++) {
       
@@ -146,7 +146,7 @@ function comicSearch(charID) {
 $("#searchBtnComics").on("click", function (event) {
   event.preventDefault();
   const searchName = $("#character-search").val().trim();
-  charBio();
   characterSearch();
+  charBio(searchName);
   // console.log(searchName);
 });
